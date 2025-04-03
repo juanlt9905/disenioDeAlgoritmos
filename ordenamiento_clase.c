@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h> 
 #include <sys/time.h> 
-#define MAXIMO 1000
+#define MAXIMO 100000
 int arreglo[MAXIMO];
 
 int main(){
@@ -63,12 +63,26 @@ int main(){
     microsegundos = fin.tv_usec - inicio.tv_usec;
     tiempo_transcurrido = segundos + microsegundos*1e-6;
 
-    printf("Tiempo transcurrido: %.6f segundos\n", tiempo_transcurrido);
+    printf("%.8f", tiempo_transcurrido);
 
     //imprimir la lista ya ordenada
-    for(int i = 0; i<n ; i++){
+    /*for(int i = 0; i<n ; i++){
         printf("%d\n", orden[i]);
+    }*/
+
+    FILE *file2 = fopen("lista1_numeros_ordenados.txt", "w");
+    if (file2 == NULL) {
+        printf("Error al abrir el archivo!\n");
+        return 1;
     }
+
+    for (int i = 0; i < n; i++) {         
+        // Escribe el número en el archivo seguido de un salto de línea
+        fprintf(file2, "%d\n", orden[i]);
+    }
+
+    // Cierra el archivo
+    fclose(file2);
     
     return 0;
 
