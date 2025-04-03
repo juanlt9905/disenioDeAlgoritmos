@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h> 
 #include <sys/time.h> 
-#define MAXIMO 100000
+#define MAXIMO 1000000
 int arreglo[MAXIMO];
 
 int main(){

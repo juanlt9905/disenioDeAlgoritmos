@@ -1,15 +1,17 @@
 #!/bin/bash
 
+#EJecucion en paralelo de los algoritmos de ordenamiento
+
 # Archivo de entrada con los números a ordenar
 INPUT_FILE="lista_numeros_aleatorios.txt"
 # Archivo CSV donde se guardarán los tiempos
-OUTPUT_CSV="tiempos.csv"
+OUTPUT_CSV="tiempos_1M.csv"
 
 # Escribe la cabecera del archivo CSV
 echo "Ejecución,Tiempo_Ordenamiento1 (segundos),Tiempo_Ordenamiento2 (segundos),Tiempo_Ordenamiento3 (segundos)" > $OUTPUT_CSV
 
-# Ejecuta el programa 30 veces
-for i in {1..2}
+# Ejecuta el programa 15 veces
+for i in {1..1}
 do
     # Redirige la entrada y ejecuta en segundo plano, capturando la salida
     { taskset -c 0 ./ordenamiento_clase < $INPUT_FILE ; } > temp1.txt &

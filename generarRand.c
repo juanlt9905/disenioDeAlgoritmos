@@ -8,7 +8,7 @@ int main() {
     // Inicializa el generador de números aleatorios
     srand(time(NULL));
 
-    int n=100000; //
+    int n=1000000; //
     // Abre un archivo en modo escritura
     FILE *file = fopen("lista_numeros_aleatorios.txt", "w");
     if (file == NULL) {
