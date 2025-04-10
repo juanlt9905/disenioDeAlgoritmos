@@ -57,8 +57,6 @@ void merge_sort(int *arreglo, int inicio, int fin){
 }
 int main(){
 
-    //int arreglo[] = {111, 30, 5, 12,-14, 6, 84, 190,11};
-    //int n = sizeof(arreglo)/sizeof(arreglo[0]);
 
      //Lectura de datos del archivo .txt
     int n, i;
@@ -70,22 +68,22 @@ int main(){
         fscanf(stdin, "%d", &arreglo[i]);
  
     }
-    /*
-    struct timeval inicio2, fin;
+    
+    struct timeval inicio2, fin2;
     long segundos, microsegundos;
     double tiempo_transcurrido;
-     */
-    //gettimeofday(&inicio2, NULL);
+
+    gettimeofday(&inicio2, NULL);
  
     merge_sort(arreglo, 0, n - 1);
 
-    //gettimeofday(&fin, NULL);
+    gettimeofday(&fin2, NULL);
 
-    //segundos = fin.tv_sec - inicio2.tv_sec;
-    //microsegundos = fin.tv_usec - inicio2.tv_usec;
-    //tiempo_transcurrido = segundos + microsegundos*1e-6;
+    segundos = fin2.tv_sec - inicio2.tv_sec;
+    microsegundos = fin2.tv_usec - inicio2.tv_usec;
+    tiempo_transcurrido = segundos + microsegundos*1e-6;
 
-    //printf("%.8f",tiempo_transcurrido);
+    printf("%.8f",tiempo_transcurrido);
 
     //for (int i=0; i<n; i++){
     //    printf("%d ", arreglo[i]);
