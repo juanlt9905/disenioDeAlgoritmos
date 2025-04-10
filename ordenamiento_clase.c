@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h> 
 #include <sys/time.h> 
-#define MAXIMO 1000000
-int arreglo[MAXIMO];
 
 int main(){
 
@@ -10,6 +8,7 @@ int main(){
     //Lectura de datos del archivo .txt
     int n, i, aux;
     fscanf(stdin, "%d", &n);
+    int arreglo[n];
 
     for(i=0; i<n; i++){
 
