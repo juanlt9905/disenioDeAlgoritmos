@@ -8,7 +8,7 @@ void mezclarListasOrdenadas(int *arreglo, int inicio, int medio, int fin){
     su longitud*/
     int n = fin- inicio +1;
     int aux[n]; // arreglo auxiliar donde sera ordenada la lista
-    //int medio = n/2 -1;
+
 
     int k=0;
     int i=inicio;
@@ -57,13 +57,54 @@ void merge_sort(int *arreglo, int inicio, int fin){
 }
 int main(){
 
-    int arreglo[] = {111, 30, 5, 12,-14, 6, 84, 190,11};
-    int n = sizeof(arreglo)/sizeof(arreglo[0]);
+    //int arreglo[] = {111, 30, 5, 12,-14, 6, 84, 190,11};
+    //int n = sizeof(arreglo)/sizeof(arreglo[0]);
 
+     //Lectura de datos del archivo .txt
+    int n, i;
+    fscanf(stdin, "%d", &n);
+    int arreglo[n];
+ 
+    for(i=0; i<n; i++){
+ 
+        fscanf(stdin, "%d", &arreglo[i]);
+ 
+    }
+    /*
+    struct timeval inicio2, fin;
+    long segundos, microsegundos;
+    double tiempo_transcurrido;
+     */
+    //gettimeofday(&inicio2, NULL);
+ 
     merge_sort(arreglo, 0, n - 1);
 
-    for (int i=0; i<n; i++)
-        printf("%d ", arreglo[i]);
+    //gettimeofday(&fin, NULL);
+
+    //segundos = fin.tv_sec - inicio2.tv_sec;
+    //microsegundos = fin.tv_usec - inicio2.tv_usec;
+    //tiempo_transcurrido = segundos + microsegundos*1e-6;
+
+    //printf("%.8f",tiempo_transcurrido);
+
+    //for (int i=0; i<n; i++){
+    //    printf("%d ", arreglo[i]);
+    //}
+    FILE *file2 = fopen("lista_merge_numeros_ordenados.txt", "w");
+    if (file2 == NULL) {
+        printf("Error al abrir el archivo!\n");
+        return 1;
+    }
+
+    for (int i = 0; i < n; i++) {         
+        // Escribe el número en el archivo seguido de un salto de línea
+        fprintf(file2, "%d\n", arreglo[i]);
+    }
+
+    // Cierra el archivo
+    fclose(file2);
+
+
     
 
 

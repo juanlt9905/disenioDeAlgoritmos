@@ -4,11 +4,15 @@
 
 
 
-int main() {
+int main(int argc, char *argv[]) {
     // Inicializa el generador de números aleatorios
     srand(time(NULL));
 
-    int n=1000000; //
+    int n = atoi(argv[1]);
+    if (n <= 0) {
+        printf("Por favor, proporciona un número entero positivo.\n");
+        return 1;
+    }
     // Abre un archivo en modo escritura
     FILE *file = fopen("lista_numeros_aleatorios.txt", "w");
     if (file == NULL) {
