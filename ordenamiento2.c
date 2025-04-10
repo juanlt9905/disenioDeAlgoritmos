@@ -1,17 +1,18 @@
 #include <stdio.h>
 #define MAXIMO 1000000
+#include <stdlib.h>
 #include <sys/time.h> 
 
 
-int main(){
+int main(int argc, char **argv){
 
     struct timeval inicio, fin;
     long segundos, microsegundos;
     double tiempo_transcurrido;
 
     //Lectura de datos del archivo .txt
-    int n, i, aux;
-    fscanf(stdin, "%d", &n);
+    int n = atoi(argv[1]);
+    int i, aux;
     int arreglo[n];
 
     for(i=0; i<n; i++){

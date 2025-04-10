@@ -5,7 +5,7 @@
 gcc ordenamiento_clase.c -o ordenamiento_clase
 gcc ordenamiento2.c -o ordenamiento2
 gcc ordenamiento3.c -o ordenamiento3
-#gcc generarRand.c -o generarRand
+gcc generarRand.c -o generarRand
 
 # Verifica si la compilación fue exitosa
 if [ $? -eq 0 ]; then

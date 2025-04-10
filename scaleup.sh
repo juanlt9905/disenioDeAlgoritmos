@@ -1,28 +1,32 @@
 #!/bin/bash
 
-# Archivo de entrada con los números a ordenar
-INPUT_FILE="lista_numeros_aleatorios.txt"
-# Archivo CSV donde se guardarán los tiempos
-OUTPUT_CSV="tiempos_ordenamiento.csv"
+# Nombre del archivo ejecutable
+executable="./ordenamiento2"
 
-# Escribe la cabecera del archivo CSV
-echo "Numero_Elementos,Tiempo_Ordenamiento (segundos)" > $OUTPUT_CSV
+# Nombre del archivo de entrada
+input_file="lista_numeros_aleatorios.txt"
 
-# Define los diferentes tamaños de subarreglos a ordenar
-for n in 100000 200000 300000 400000 500000 600000 700000 800000 900000
-do
-    # Crea un archivo temporal con los primeros n números del archivo de entrada
-    head -n $n $INPUT_FILE > temp_input.txt
+# Nombre del archivo CSV de salida
+output_csv="scaleup.csv"
 
-    # Ejecuta el programa y captura únicamente el tiempo de ejecución
-    TIEMPO=$(./ordenamiento32 < temp_input.txt)
+# Compilar el programa
+gcc -o ordenamiento2 ordenamiento2.c
 
-    # Guarda el número de elementos y el tiempo en el archivo CSV
-    echo "$n,$TIEMPO" >> $OUTPUT_CSV
-    echo "Ordenamiento de $n elementos completado en $TIEMPO segundos."
+# Escribir encabezado en el archivo CSV
+echo "Numeros Ordenados,Tiempo de Ejecucion" > $output_csv
 
-    # Limpia el archivo temporal
-    rm temp_input.txt
+# Lista de tamaños a probar
+sizes=(100000 200000 300000 400000 500000 600000 700000)
+
+# Ejecutar el programa para cada tamaño y capturar los resultados
+for size in "${sizes[@]}"; do
+    # Ejecutar el programa y capturar la salida
+    result=$($executable $size < $input_file)
+    
+    # Agregar el resultado al archivo CSV
+    echo "$size,$result" >> $output_csv
+
+    echo "Termina Ordenacion de $size elementos."
 done
 
-echo "Ejecuciones completadas. Los tiempos se han guardado en $OUTPUT_CSV."
+echo "Resultados guardados en $output_csv"

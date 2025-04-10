@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    fprintf(file, "%d\n", n);
+    //fprintf(file, "%d\n", n);
 
     for (int i = 0; i < n; i++) {
         // Genera un número aleatorio
