@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # Nombre del archivo ejecutable
-executable="./ordenamiento2"
+executable="./ordenamiento3"
 
 # Nombre del archivo de entrada
 input_file="lista_numeros_aleatorios.txt"
 
 # Nombre del archivo CSV de salida
-output_csv="scaleup.csv"
+output_csv="scaleup_ordenamiento3.csv"
 
 # Compilar el programa
-gcc -o ordenamiento2 ordenamiento2.c
+gcc -o ordenamiento3 ordenamiento3.c
 
 # Escribir encabezado en el archivo CSV
-echo "Numeros Ordenados,Tiempo de Ejecucion" > $output_csv
+echo "longitud_ordenamiento,tiempo" > $output_csv
 
 # Lista de tamaños a probar
 sizes=(100000 200000 300000 400000 500000 600000 700000)

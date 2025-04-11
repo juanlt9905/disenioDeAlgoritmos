@@ -4,15 +4,15 @@
 
 
 
-int main(){
+int main(int argc, char **argv){
     //Toma de tiempo de ejecución.
     struct timeval inicio, fin;
     long segundos, microsegundos;
     double tiempo_transcurrido;
 
     //Lectura de datos del archivo .txt
-    int n, i;
-    fscanf(stdin, "%d", &n);
+    int n = atoi(argv[1]);
+    int i;
     int arreglo[n];
 
     for(i=0; i<n; i++){// Llenado del arreglo a ordenar.
