@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h> 
+#include <stdlib.h>
 #include <sys/time.h> 
 
-int main(){
+int main(int argc, char **argv){
 
     int posicion;
     //Lectura de datos del archivo .txt
-    int n, i, aux;
-    fscanf(stdin, "%d", &n);
+    int i, aux;
+    int n = atoi(argv[1]);
     int arreglo[n];
 
     for(i=0; i<n; i++){
@@ -18,7 +19,7 @@ int main(){
     //int desorden[] = {8,90,5,4,7,3,6,10};
     //int desorden[] = {8,6,7,5,4,3,2,1};
     int indice[n];
-    memset(indice, 0, sizeof(indice)); 
+    memset(indice, 0, sizeof(indice)); //llenar de 0 todo el arreglo.
     int orden[n];   
     int min;
     //Toma de tiempo

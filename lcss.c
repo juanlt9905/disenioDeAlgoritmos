@@ -26,7 +26,8 @@ int lcss(char * a, char *b){
     if (*a=='\0'|| *b=='\0'){
         return 0;
     }
-    else if (a[0]==b[0]){
+    printf("%s, %s\n",a,b);
+    if (a[0]==b[0]){
         return 1 + lcss(a+1, b+1);
     }
     else{

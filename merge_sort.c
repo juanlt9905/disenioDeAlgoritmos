@@ -44,7 +44,7 @@ void mezclarListasOrdenadas(int *arreglo, int inicio, int medio, int fin){
 
 void merge_sort(int *arreglo, int inicio, int fin){
     if (inicio < fin) { // si el arreglo tiene longitud mayor a 1
-        int medio = inicio + (fin - inicio) / 2;// punto medio del arreglo
+        int medio = inicio + (fin - inicio)/2;// punto medio del arreglo
     
         // Ordenar la primera y segunda mitad
         merge_sort(arreglo, inicio, medio);// ordena la primera parte
