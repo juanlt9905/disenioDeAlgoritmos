@@ -3,16 +3,7 @@
 
 int main(){
 
-    int n=3;
-    int vec[n];
-
-    memset(vec, 0, sizeof(vec)); 
-
-    for (int i=0; i<n; i++){
-
-        printf("%d", vec[i]);
-
-    }
+    printf("%d", 5/2);
 
 
 

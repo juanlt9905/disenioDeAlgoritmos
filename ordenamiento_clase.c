@@ -21,7 +21,6 @@ int main(int argc, char **argv){
     int indice[n];
     memset(indice, 0, sizeof(indice)); //llenar de 0 todo el arreglo.
     int orden[n];   
-    int min;
     //Toma de tiempo
     struct timeval inicio, fin;
     long segundos, microsegundos;
@@ -30,6 +29,7 @@ int main(int argc, char **argv){
 
     gettimeofday(&inicio, NULL);
     //Comienzo del ordenamiento
+    int min;
     for (int j=0; j<n ; j++){    //** C1   Se ejecuta n+1 veces */
 
         //Encontrar el primer elemento con la bandera 0 para inicializar el minimo min.

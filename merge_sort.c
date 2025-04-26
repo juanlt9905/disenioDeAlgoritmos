@@ -7,15 +7,19 @@ void mezclarListasOrdenadas(int *arreglo, int inicio, int medio, int fin){
     esta ordenada, asi como su segunda mitad. Tambien recibe
     su longitud*/
     int n = fin- inicio +1;
-    int aux[n]; // arreglo auxiliar donde sera ordenada la lista
-
+    //int aux[n]; // arreglo auxiliar donde sera ordenada la lista
+    int *aux = (int *)malloc(n * sizeof(int)); // arreglo auxiliar dinamico
+    if (arreglo == NULL) {
+        fprintf(stderr, "Error al asignar memoria\n");
+        exit(1);
+    }
 
     int k=0;
     int i=inicio;
     int j= medio+1;
 
     while(i<=medio && j<=fin){
-        if (arreglo[i]<arreglo[j]){
+        if (arreglo[i]<=arreglo[j]){
             aux[k] = arreglo[i];
             i++;
         }
@@ -40,9 +44,11 @@ void mezclarListasOrdenadas(int *arreglo, int inicio, int medio, int fin){
     for (int i = 0; i < n; i++) {
         arreglo[inicio +i] = aux[i];    
     }
+    free(aux); // liberar la memoria
 }
 
 void merge_sort(int *arreglo, int inicio, int fin){
+    //printf("Inicio: %d, Fin: %d\n", inicio, fin);
     if (inicio < fin) { // si el arreglo tiene longitud mayor a 1
         int medio = inicio + (fin - inicio)/2;// punto medio del arreglo
     
@@ -55,12 +61,12 @@ void merge_sort(int *arreglo, int inicio, int fin){
     }
     //si el arreglo es de longitud 1, ya esta ordenado (caso base)
 }
-int main(){
+int main(int argc, char **argv){
 
 
      //Lectura de datos del archivo .txt
-    int n, i;
-    fscanf(stdin, "%d", &n);
+    int i;
+    int n = atoi(argv[1]);
     int arreglo[n];
  
     for(i=0; i<n; i++){
