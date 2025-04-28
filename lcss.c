@@ -33,7 +33,7 @@ int lcss(char * a, char *b){
     else{
         int l_a_subb = lcss(a, b+1);
         int l_suba_b = lcss(a+1, b);
-        if (l_a_subb>=l_suba_b)
+        if (l_a_subb>=l_suba_b) 
             return l_a_subb;
         else
             return l_suba_b;
