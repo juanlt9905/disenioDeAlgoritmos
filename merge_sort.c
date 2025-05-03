@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h> 
+#define MAXIMO 4000000
+int arreglo[MAXIMO];
 
 void mezclarListasOrdenadas(int *arreglo, int inicio, int medio, int fin){ 
     /*Recibe un arreglo cuya primera mitad
@@ -67,7 +69,7 @@ int main(int argc, char **argv){
      //Lectura de datos del archivo .txt
     int i;
     int n = atoi(argv[1]);
-    int arreglo[n];
+    //int arreglo[n];
  
     for(i=0; i<n; i++){
  
