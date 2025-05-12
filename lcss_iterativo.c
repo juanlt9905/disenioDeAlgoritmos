@@ -24,8 +24,9 @@ int main(int argc, char **argv){
             matriz[i][j] =0 ;
         }
     }
-
-    for (int i = 0; a[i]!='\0'; i++){
+    
+    //Llenar la matriz de arriba hacia abajo
+    /*for (int i = 0; a[i]!='\0'; i++){
         for (int j= 0; b[j]!='\0'; j++){
             if(a[i]==b[j])
                 matriz[i+1][j+1]= 1 + matriz[i][j]; 
@@ -33,9 +34,21 @@ int main(int argc, char **argv){
                 matriz[i+1][j+1]=max(matriz[i][j+1], matriz[i+1][j]);
         }
 
-    }
+    }*/
 
-    int resultado = matriz[lenA][lenB];
+    // Llenar la matriz de abajo hacia arriba
+    for (int i= lenA-1; i>=0; i--) {
+        for (int j = lenB-1; j>= 0; j--) {
+            if (a[i] == b[j]) {
+                matriz[i][j] = 1 + matriz[i+1][j+1];
+            } else {
+                matriz[i][j] = max(matriz[i+1][j], matriz[i][j+1]);
+            }
+        }
+    }
+    
+
+    int resultado = matriz[0][0];
     printf("Resultado: %d\n", resultado);
 
 

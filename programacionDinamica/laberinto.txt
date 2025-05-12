@@ -1,0 +1,5 @@
+4 4
+t t o t
+t # o t 
+t t o o
+t t t t
