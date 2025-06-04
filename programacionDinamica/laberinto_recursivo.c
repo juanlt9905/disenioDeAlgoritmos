@@ -9,22 +9,7 @@ char camino[MAX];
 
 int max(int a, int b) { return a > b ? a : b; }
 int min(int a, int b) { return b > a ? a : b; }
-/*
-int labRecursivo(int i, int j, int renglones, int columnas){
- 
-    printf("Llamada para %d, %d\n", i,j);
-    if (soluciones[i][j] == -100 || (i == renglones-1 && j == columnas-1)) 
-        return soluciones[i][j]; //valores ya almacenados en soluciones.
-    else if(i==renglones-1 && j!= columnas-1){
-        soluciones[i][j] = soluciones[i][j] + labRecursivo(i, j+1, renglones, columnas);
-    }else if (j==columnas-1){
-        soluciones[i][j] = soluciones[i][j] +labRecursivo(i+1, j, renglones, columnas); 
-    }else{
-        soluciones[i][j]= soluciones[i][j] + max(labRecursivo(i+1, j, renglones, columnas),labRecursivo(i, j+1, renglones, columnas));
-    }
-    return soluciones[i][j];
 
-}*/
 
 int labRecursivo(int i, int j, int renglones, int columnas){
 
@@ -37,9 +22,10 @@ int labRecursivo(int i, int j, int renglones, int columnas){
     if (i==renglones-1 && j== columnas-1){//caso base para la meta
         if(laberinto[i][j]== 'o'){
             return soluciones[i][j]= 1;
-        }else return soluciones[i][j]=0;
+        }else return soluciones[i][j]=0; //** */
     }
     if (soluciones[i][j]!=-200) return soluciones[i][j];
+    
     if (i ==renglones-1){
         if(laberinto[i][j]=='o') soluciones[i][j] = 1+labRecursivo(i, j+1, renglones, columnas);
         else soluciones[i][j] = labRecursivo(i, j+1, renglones, columnas);

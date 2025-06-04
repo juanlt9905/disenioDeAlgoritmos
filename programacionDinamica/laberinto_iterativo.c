@@ -43,7 +43,7 @@ int main(){
 
         }
     }
-    /*
+    
     for (int i=0; i<= renglones; i++) {
         for (int j=0; j <=columnas; j++) {
             printf("%d ", soluciones[i][j]);
@@ -51,7 +51,7 @@ int main(){
         printf("\n");
     }
     printf("\n");
-    */
+    
 
     for (int i=renglones-1; i>=0; i--){
         for (int j=columnas-1; j>=0; j--){//se calcula la solucion para celdas que no son obstaculo y no son la celda meta
@@ -73,7 +73,7 @@ int main(){
 
     int i=0, j=0, k=0;
 
-    while( i!=renglones-1 || j!= columnas-1){
+    while( i!=renglones-1 || j!= columnas-1){     
         if (i==renglones-1){
             j++;
             camino[k]='R'; //movimiento a la derecha
