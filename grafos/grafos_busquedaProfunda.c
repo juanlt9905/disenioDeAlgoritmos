@@ -72,7 +72,7 @@ TNodo *sucesores(TNodo * nodo_actual, int numAristas){
     return sucesores;
 }
 
-int busquedaPorProfundidad(TNodo *nodo_inicial, int numAristas){ //regresa el camino (lista) a la solucion
+int busquedaPorProfundidad(TNodo *nodo_inicial, int numAristas){ //
     printf("--- Busqueda inicianda para nodo: %d ---\n", nodo_inicial->info); 
     TNodo *abiertos=NULL;
     int ciclo_encontrado=0;
@@ -101,8 +101,7 @@ int busquedaPorProfundidad(TNodo *nodo_inicial, int numAristas){ //regresa el ca
         while (temp!=NULL){ 
             
             if(estadoEnCamino(nodo_actual, temp->info)==0){
-                if (nodos_visitados[temp->info]==0) //evita analizar nodos ya analizados en otras ramas
-                    AgregarInicio(&abiertos, temp->info, nodo_actual);// Pila
+                    if(nodos_visitados[temp->info]==0 )AgregarInicio(&abiertos, temp->info, nodo_actual);// Pila
             }
             else{
                 ciclo_encontrado=1; //se encontro un ciclo
