@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <sys/time.h> 
 #include <string.h>
-#define MAX 100
-#define MAX_NODOS 100 
+#define MAX 25000
+#define MAX_NODOS 3000 
 int aristas[MAX][2];
 int nodos_visitados[MAX_NODOS];
 
@@ -45,8 +45,17 @@ void liberarLista(TNodo *lista) {
     }
 }
 int estadoEnCamino(TNodo *nodo_actual, int dato){// busca los estados en una ramificacion mediante el padre
-    TNodo *temp = nodo_actual;
+    // si el nodo actual no tiene padre, no hay backtracking
+    if (nodo_actual->padre == NULL) {
+        return 0;
+    }
 
+    //comprobar si el dato que buscamos es el padre inmediato, si lo es, es un ciclo falso
+    if (nodo_actual->padre->info == dato) {
+        return 0;
+    }
+    //empezamos la busqueda desde el padre.
+    TNodo *temp = nodo_actual->padre;
     while(temp != NULL){
         if(temp->info==dato){
             return 1; // se encontro estado
@@ -65,7 +74,7 @@ TNodo *sucesores(TNodo * nodo_actual, int numAristas){
 
     for (int i=0; i<numAristas; i++){
         if (aristas[i][0]== valor_nodo) AgregarInicio(&sucesores, aristas[i][1], nodo_actual);
-
+        else if (aristas[i][1]== valor_nodo) AgregarInicio(&sucesores, aristas[i][0], nodo_actual);
     }
 
 
@@ -103,7 +112,7 @@ int busquedaPorProfundidad(TNodo *nodo_inicial, int numAristas){ //
             if(estadoEnCamino(nodo_actual, temp->info)==0){
                     if(nodos_visitados[temp->info]==0 )AgregarInicio(&abiertos, temp->info, nodo_actual);// Pila
             }
-            else{
+            else{ //omitimos ciclos inmediatos por ser aristas no dirigidas
                 ciclo_encontrado=1; //se encontro un ciclo
                 break;
             }
@@ -122,7 +131,7 @@ int busquedaPorProfundidad(TNodo *nodo_inicial, int numAristas){ //
 int main(){
 
 
-    FILE *file = fopen("grafo.txt", "r");
+    FILE *file = fopen("grafo_grande.txt", "r");
     int numAristas, numNodos;
     fscanf(file, "%d", &numNodos); // nodos de 0 a numNodos-1.
     fscanf(file, "%d", &numAristas);

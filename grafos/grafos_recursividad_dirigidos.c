@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/time.h> 
 
-#define MAX_ARISTAS 100
-#define MAX_NODOS 100
+#define MAX_ARISTAS 25000
+#define MAX_NODOS 3000
 
 int aristas[MAX_ARISTAS][2];
 int nodos_visitados[MAX_NODOS];
@@ -58,6 +59,10 @@ void busquedaRecursiva(TNodo *nodo_actual, int numAristas) {
     TNodo *sucesor_actual = lista_sucesores;
     while (sucesor_actual != NULL) {
         //verificar si el sucesor crea un ciclo
+
+        //if(sucesor_actual->info == nodo_Actual->padre->info){
+        //    continue;
+        //}
         if (enCamino[sucesor_actual->info] == 1) {
             //se detecta un ciclo
             ciclo_encontrado = 1;
@@ -79,8 +84,12 @@ void busquedaRecursiva(TNodo *nodo_actual, int numAristas) {
 }
 
 int main(){
+    //Toma de tiempo de ejecución.
+    struct timeval inicio, fin;
+    long segundos, microsegundos;
+    double tiempo_transcurrido;
 
-    FILE *file = fopen("grafo.txt", "r");
+    FILE *file = fopen("grafo_grande.txt", "r");
     int numAristas, numNodos;
     fscanf(file, "%d", &numNodos); // nodos de 0 a numNodos-1.
     fscanf(file, "%d", &numAristas);
@@ -92,6 +101,8 @@ int main(){
     }
 
     fclose(file); 
+
+    gettimeofday(&inicio, NULL); //Inicio de la toma temporal
 
     // Bandera y arreglos de registro de nodos visitados y camino
     ciclo_encontrado = 0;
@@ -118,12 +129,19 @@ int main(){
         }
     }
 
+
     if(ciclo_encontrado==1)
         printf("Se encontro un ciclo. \n");
     else
         printf("NO se encontro un ciclo.\n");
 
+            gettimeofday(&fin, NULL);
 
+    segundos = fin.tv_sec - inicio.tv_sec;
+    microsegundos = fin.tv_usec - inicio.tv_usec;
+    tiempo_transcurrido = segundos + microsegundos*1e-6;
+
+    printf("%.8f", tiempo_transcurrido);
 
 
     return 0;
