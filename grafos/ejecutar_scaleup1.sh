@@ -21,7 +21,6 @@ echo "Compilación exitosa. Ejecutable creado: $EJECUTABLE"
 echo ""
 
 # --- PREPARAR EL ARCHIVO DE RESULTADOS CSV ---
-# Escribir la cabecera del CSV. El '>' sobrescribe el archivo si ya existe.
 echo "Nodos,Aristas,Tiempo_Segundos" > "$ARCHIVO_CSV"
 
 

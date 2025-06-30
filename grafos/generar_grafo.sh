@@ -1,8 +1,8 @@
 #!/bin/bash
 
 NUM_NODOS=500
-NUM_ARISTAS=24950
-NOMBRE_ARCHIVO="grafo_scaleup_500.txt"
+NUM_ARISTAS=2490
+NOMBRE_ARCHIVO="grafo_scaleup_500_ponderado.txt"
 
 echo "$NUM_NODOS" > "$NOMBRE_ARCHIVO"
 echo "$NUM_ARISTAS" >> "$NOMBRE_ARCHIVO"
@@ -32,7 +32,9 @@ do
   # Verificar si la arista ya existe
   if [ -z "${aristas_generadas[$clave]}" ]; then
     aristas_generadas[$clave]=1
-    echo "$u $v" >> "$NOMBRE_ARCHIVO"
+
+    peso=$(( (RANDOM % 20) + 1 ))
+    echo "$u $v $peso" >> "$NOMBRE_ARCHIVO"
     contador=$((contador + 1))
   fi
 done
