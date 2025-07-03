@@ -7,8 +7,7 @@ import sys
 
 def calcular_peso_mst_correcto(nombre_archivo):
     """
-    Lee un archivo de grafo en el formato especificado, calcula el peso del
-    Árbol de Expansión Mínimo (MST) y lo imprime.
+    Lee un archivo de grafo en dot, calcula el peso total del MST
     """
     try:
         with open(nombre_archivo, 'r') as f:

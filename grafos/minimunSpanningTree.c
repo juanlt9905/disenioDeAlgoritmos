@@ -12,6 +12,7 @@ typedef struct {
     int v;
     int peso;
 }Arista;
+
 Arista aristas[MAX_ARISTAS]; //arreglo de estructuras tipo aristas
 int padre[MAX_NODOS];
 
@@ -154,7 +155,7 @@ int main(int argc, char *argv[]){
     }
 
     snprintf(dot_filename, sizeof(dot_filename), "minimunST/minimunST_%s.dot", parte_numerica);
-    snprintf(png_filename, sizeof(png_filename), "spanning3_%s.png", parte_numerica);
+    snprintf(png_filename, sizeof(png_filename), "minimunST/spanning3_%s.png", parte_numerica);
 
     FILE *dot_file = fopen(dot_filename, "w");
     if (dot_file == NULL) {
