@@ -1,0 +1,4 @@
+graph SingleSource {
+  node [shape=circle, style=filled, fillcolor=lightblue];
+  edge [color=darkgreen];
+}

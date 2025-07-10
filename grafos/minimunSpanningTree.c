@@ -178,7 +178,7 @@ int main(int argc, char *argv[]){
     // Mensajes de estado enviados a stderr para no interferir con la salida principal
     fprintf(stderr, " -> Las aristas del árbol generador han sido guardadas en %s\n", dot_filename);
 
-    printf("Longitud del spanningTree: %d", longitud);
+    //printf("Longitud del spanningTree: %d", longitud);
     //fprintf(stderr, " -> Generando imagen con Graphviz...\n");
 
     // Usamos snprintf para construir el comando del sistema de forma segura

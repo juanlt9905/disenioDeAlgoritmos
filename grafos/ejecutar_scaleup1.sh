@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #Archivo fuente
-PROGRAMA_C="spanningTree3.c"
+PROGRAMA_C="singleSourceShortestPath1.c"
 # Nombre que le daremos al programa compilado (el ejecutable)
-EJECUTABLE="spanningTree3"
+EJECUTABLE="singleSourceShortestPath1"
 # Nombre del archivo de salida para los resultados
-ARCHIVO_CSV="resultados_spanning_kruskal.csv"
+ARCHIVO_CSV="singleSourceScale/resultados_sigleSourceShortestPath1.csv"
 # El nombre de tu script que genera los grafos
 GENERADOR_GRAFOS="generar_grafos.sh" 
 

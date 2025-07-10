@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NUM_NODOS=500
-NUM_ARISTAS=2490
-NOMBRE_ARCHIVO="grafo_scaleup_500_ponderado.txt"
+NUM_NODOS=400
+NUM_ARISTAS=15960
+NOMBRE_ARCHIVO="grafo_scaleup_400_ponderado.txt"
 
 echo "$NUM_NODOS" > "$NOMBRE_ARCHIVO"
 echo "$NUM_ARISTAS" >> "$NOMBRE_ARCHIVO"

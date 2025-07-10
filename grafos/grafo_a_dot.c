@@ -53,11 +53,11 @@ int main(int argc, char *argv[]){
     fclose(dot_file);
 
     printf("Las aristas del árbol generador han sido guardadas en spanning_tree1.dot\n");
-    printf("Generando imagen con Graphviz...\n");
+   // printf("Generando imagen con Graphviz...\n");
 
     // Ejecutar Graphviz para generar la imagen PNG
     // Asegúrate de que 'dot' esté en tu PATH del sistema
-    int result = system("dot -Tpng grafo_prueba_conectado.dot -o grafo_prueba_conectado.png");
+    /*int result = system("dot -Tpng grafo_prueba_conectado.dot -o grafo_prueba_conectado.png");
 
     if (result == 0) {
         printf("¡Grafo generado exitosamente en spanning_tree1.png!\n");
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]){
         fprintf(stderr, "Error: Graphviz (comando 'dot') no se ejecutó correctamente.\n");
         fprintf(stderr, "Asegúrate de tener Graphviz instalado y 'dot' en tu PATH.\n");
         return 1;
-    }
+    }*/
 
 
 
