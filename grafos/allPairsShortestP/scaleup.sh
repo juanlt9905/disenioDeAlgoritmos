@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #Archivo fuente
-PROGRAMA_C="../singleSourceShortestPath1.c"
+PROGRAMA_C="../allPairsShortestPath2.c"
 # Nombre que le daremos al programa compilado (el ejecutable)
-EJECUTABLE="../singleSourceShortestPath1"
+EJECUTABLE="../allPairsShortestPath2"
 # Nombre del archivo de salida para los resultados
-ARCHIVO_CSV="resultados_sigleSourceShortestPath1.csv"
+ARCHIVO_CSV="resultados_allPairsShortestPath2.csv"
 # El nombre de tu script que genera los grafos
 GENERADOR_GRAFOS="generar_grafos.sh" 
 

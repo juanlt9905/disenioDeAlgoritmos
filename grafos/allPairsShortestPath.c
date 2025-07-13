@@ -222,6 +222,10 @@ int main(int argc, char *argv[]){
     
     fclose(file); 
 
+    struct timeval inicio, fin;
+    double tiempo_transcurrido;
+    gettimeofday(&inicio, NULL);
+
 
     //Bucle que itera sobre todos los nodos, como nodos fuente
     for (int i=0; i<numNodos; i++){
@@ -259,15 +263,23 @@ int main(int argc, char *argv[]){
             matriz_padres[i][j]=padre[j];
         }
     }
+    gettimeofday(&fin, NULL);
 
-    printf("Matriz de costos\n");
+    long segundos = fin.tv_sec - inicio.tv_sec;
+    long microsegundos = fin.tv_usec - inicio.tv_usec;
+    tiempo_transcurrido = segundos + microsegundos * 1e-6;
+
+    printf("%.6f", tiempo_transcurrido);
+
+
+    /*printf("Matriz de costos\n");
     for (int i= 0; i < numNodos; i++){
         for (int j=0; j < numNodos; j++){
             printf("%d ", matriz_costos[i][j]);
         }
         printf("\n");
     }
-    
+    */
     //printf("Padres single-source 2: \n");
     //for (int i=0; i<numNodos; i++){
     //    printf("%d ", padre[i]);    

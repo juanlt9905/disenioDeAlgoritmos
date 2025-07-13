@@ -209,7 +209,7 @@ int main(int argc, char *argv[]){
     // Ahora 'parte_numerica' contiene solo el número, ej: "500"
 
     // CORRECCIÓN: Usamos snprintf con la sintaxis correcta (destino, tamaño, formato, variable)
-    snprintf(dot_filename, sizeof(dot_filename), "singleSourceScale/singleSource1_%s.dot", parte_numerica);
+    snprintf(dot_filename, sizeof(dot_filename), "../singleSourceScale/singleSource1_%s.dot", parte_numerica);
     snprintf(png_filename, sizeof(png_filename), "singleSource1_%s.png", parte_numerica);
 
     FILE *dot_file = fopen(dot_filename, "w");
@@ -249,7 +249,7 @@ int main(int argc, char *argv[]){
     }*/
 
     // SALIDA FINAL (stdout): Solo el tiempo, para que el script lo capture
-    //printf("%.6f", tiempo_transcurrido);
+    printf("%.6f", tiempo_transcurrido);
     
 
     int suma_costos = 0;
@@ -264,7 +264,7 @@ int main(int argc, char *argv[]){
     }
 
 
-    printf("Costo del arbol: %d \n", suma_costos);
+    //printf("Costo del arbol: %d \n", suma_costos);
 
     return 0;
 }

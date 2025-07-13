@@ -101,9 +101,16 @@ int main(int argc, char *argv[]){
     
     fclose(file); 
 
+
+    struct timeval inicio, fin;
+    double tiempo_transcurrido;
+    gettimeofday(&inicio, NULL);
+
     inicializar_matrices(numNodos, numAristas);
 
     //Bucle principal
+
+
 
     for (int k=0; k<numNodos; k++) { ///nodos intermedios
         for (int i = 0; i < numNodos; i++){ //iteracion sobre nodo inicial
@@ -119,13 +126,21 @@ int main(int argc, char *argv[]){
     }
 
 
-    printf("Matriz de costos\n");
+    gettimeofday(&fin, NULL);
+
+    long segundos = fin.tv_sec - inicio.tv_sec;
+    long microsegundos = fin.tv_usec - inicio.tv_usec;
+    tiempo_transcurrido = segundos + microsegundos * 1e-6;
+
+    printf("%.6f", tiempo_transcurrido);
+
+    /*printf("Matriz de costos\n");
     for (int i= 0; i < numNodos; i++){
         for (int j=0; j < numNodos; j++){
             printf("%d ", matriz_costos[i][j]);
         }
         printf("\n");
-    }
+    }*/
     
     //printf("Padres single-source 2: \n");
     //for (int i=0; i<numNodos; i++){
