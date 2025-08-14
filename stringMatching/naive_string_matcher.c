@@ -8,10 +8,10 @@ void naive1(char *T, char *P) {
     int m = strlen(P);
     
     //iteramos sobre todos los posibles shifts
-    for (int s = 0; s <= n - m; s++) {
+    for (int s=0; s <= n-m; s++) {
         int j;
         //verificamos si el desplazamiento actual coincide con  el patron
-        for (j = 0; j < m; j++) {
+        for (j=0; j<m; j++) {
             if (T[s + j] != P[j]) {
                 break; // si los caracteres no coinciden se rompe el bucle
             }
